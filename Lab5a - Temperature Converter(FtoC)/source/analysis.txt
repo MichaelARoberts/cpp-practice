@@ -1,0 +1,26 @@
+2a) I received two errors:
+
+  lab5a.cpp:17:1: error: 'main' must return 'int'
+  void main()
+  ^~~~
+  int
+
+  lab5a.cpp:22:2: error: use of undeclared identifier 'displayWelcomeMessage'
+          displayWelcomeMessage();
+          ^
+  2 errors generated.
+
+
+4a) To fix the first error, which I believe was unintentional,
+  I turned main into an int, then returned 0.
+
+  Two fix the second I did as instructed
+
+7a) Received no errors
+
+9a) Received 1 error:
+  Undefined symbols for architecture x86_64:
+  "fahrenheitToCelcius(double)", referenced from:
+      _main in lab5a-880daf.o
+  ld: symbol(s) not found for architecture x86_64
+  clang: error: linker command failed with exit code 1 (use -v to see invocation)
