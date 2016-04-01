@@ -31,8 +31,11 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
 
-  const char OPTIONS[] = {'A','B','C'};
-  bool valid = false;
+  // Constants
+  const int AIR = 1100;
+  const int WATER = 4900;
+  const int STEEL = 16400;
+
   char materialInput;
   double distance;
   double seconds;
@@ -46,28 +49,22 @@ int main(int argc, char const *argv[]) {
   cin >> materialInput;
   materialInput = toupper(materialInput);
 
-  // Make sure the users input is a possible option
-  for(int i = 0;i <= 3;i++){
-    if (OPTIONS[i] == materialInput){
-      valid = true;
-    }
+  while (distance < 0){
+    cout << "\n[!] Please enter the distance the sound will travel through the material: " << endl;
+    cout << "   [?] ";
+    cin >> distance;
   }
-
-  // If the input is valid
-  if (!valid) {
-    cout << "Invalid Option" << endl;
-    return 0;
-  }
-
-  cout << "\n[!] Please enter the distance the sound will travel through the material: " << endl;
-  cout << "   [?] ";
-  cin >> distance;
 
   // Calulate the amount of seconds it takes to permeate each material
   switch(materialInput){
-    case 'A'  : seconds = distance/1100;  // If Air
-    case 'B'  : seconds = distance/4900;  // If Water
-    case 'C'  : seconds = distance/16400; // If Steel
+    case 'A'  : seconds = distance/AIR; // If Air
+                break;
+    case 'B'  : seconds = distance/WATER;  // If Water
+                break;
+    case 'C'  : seconds = distance/STEEL; // If Steel
+                break;
+    default   : cout << "Invalid Material Choice";
+                break;
   }
 
   cout << "The time it will take " << seconds << " seconds to travel through the material." << endl;
